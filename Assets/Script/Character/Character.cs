@@ -1,16 +1,30 @@
 using UnityEngine;
 
-public class Charactor : MonoBehaviour
+public abstract class Charactor : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+    private int hp;
+
+    public int Hp 
+    { 
+        get => hp;
+        set => hp = (value <= 0) ? 0 : (value >= MaxHp) ? MaxHp : value; 
     }
 
-    // Update is called once per frame
-    void Update()
+    public int MaxHp { get; set; }
+
+    public int Damage { get; set; }
+
+    public int MoveSpeed { get; set; }
+
+
+    public void TakeDamage() 
     {
-        
+    
     }
+
+    public bool IsDead()
+    {
+        return hp <= 0;
+    }
+
 }
