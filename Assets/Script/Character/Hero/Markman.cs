@@ -1,7 +1,17 @@
 using UnityEngine;
 
-public class Markman : MonoBehaviour
+public class Markman : Hero
 {
+    public override void AttackType()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Skill()
+    {
+        throw new System.NotImplementedException();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

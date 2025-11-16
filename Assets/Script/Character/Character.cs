@@ -17,9 +17,9 @@ public abstract class Charactor : MonoBehaviour
     public int MoveSpeed { get; set; }
 
 
-    public void TakeDamage() 
+    public void TakeDamage(Charactor other) 
     {
-    
+        Hp -= other.Damage;
     }
 
     public bool IsDead()

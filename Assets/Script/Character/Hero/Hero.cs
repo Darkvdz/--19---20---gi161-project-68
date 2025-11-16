@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class Hero : MonoBehaviour
+public abstract class Hero : Charactor
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public int AtkSpeed { get; set; }
+    public int AtkRange { get; set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Item[] ItemEquip { get; set; }
+
+    public abstract void AttackType();
+
+    public abstract void Skill();
+
 }
