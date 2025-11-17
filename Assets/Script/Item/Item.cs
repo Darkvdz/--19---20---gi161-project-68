@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public abstract class Item : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int AddHp { get; set; }
+
+    public int AddDamage { get; set; }
+
+    public int AddSpeed { get; set; }
+
+    public void InitializeItem(int statusHp, int statusDamage, int statusSpeed)
     {
-        
+        AddHp = statusHp;
+        AddDamage = statusDamage;
+        AddSpeed = statusSpeed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract void AddjustPlayerStatus();
 }
