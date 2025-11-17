@@ -1,14 +1,24 @@
 using UnityEngine;
 
-public abstract class Hero : Charactor
+public abstract class Hero : Character
 {
-    public int AtkSpeed { get; set; }
-    public int AtkRange { get; set; }
+
 
     public Item[] ItemEquip { get; set; }
 
+    public void InitializeHero(int startHealth, int startDamage, int startMoveSpeed, int startAtkSpeed, int startAtkRange)
+    {
+        base.InitializeCharacter(startHealth, startDamage, startMoveSpeed, startAtkSpeed, startAtkRange);
+
+    }
     public abstract void AttackType();
 
     public abstract void Skill();
+
+    public override void OnDeath()
+    {
+        Destroy(this.gameObject);
+    }
+
 
 }

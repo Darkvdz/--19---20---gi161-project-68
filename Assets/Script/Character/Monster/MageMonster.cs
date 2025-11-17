@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class MageMonster : MonoBehaviour
+public class MageMonster : Monster
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        base.InitializeEnemy(25, 15, 3, 3, 15, 10, 5);
     }
 
     // Update is called once per frame
@@ -13,4 +13,10 @@ public class MageMonster : MonoBehaviour
     {
         
     }
+
+    public override void AttackType()
+    {
+        throw new System.NotImplementedException();
+    }
+
 }
