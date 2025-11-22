@@ -1,16 +1,44 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public abstract class Projectile : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int Damage { get; set; }
+    public IShootable Shooter;
+
+
+    public abstract void Move();
+
+    public abstract void OnHitWith(Character charactor);
+
+    public void InitProjectile(int newDamage, IShootable newShooter)
     {
-        
+        Damage = newDamage;
+        Shooter = newShooter;
     }
 
-    // Update is called once per frame
-    void Update()
+    public int GetShootDirection()
     {
-        
+        float value = Shooter.ShootPoint.position.x - Shooter.ShootPoint.parent.position.x;
+
+        if (value > 0)
+        {
+            return 1; //face right
+        }
+        else
+        {
+            return -1; //face left
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Character character = other.GetComponent<Character>();
+
+        if (character != null)
+        {
+            OnHitWith(character);
+            Destroy(this.gameObject, 5f);
+        }
     }
 }

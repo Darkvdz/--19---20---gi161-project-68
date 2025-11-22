@@ -1,7 +1,12 @@
 using UnityEngine;
 
-public class MageMonster : Monster
+public class MageMonster : Monster, IShootable
 {
+    [field: SerializeField] public GameObject Bullet { get; set; }
+    [field: SerializeField] public Transform ShootPoint { get; set; }   
+    public float ReloadTime { get; set; }
+    public float WaitTime { get; set; }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,4 +24,8 @@ public class MageMonster : Monster
         throw new System.NotImplementedException();
     }
 
+    public void Shoot()
+    {
+        throw new System.NotImplementedException();
+    }
 }

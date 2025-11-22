@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Character : MonoBehaviour
 {
@@ -27,6 +28,12 @@ public abstract class Character : MonoBehaviour
     public int AtkRange { get; set; }
 
 
+    protected Rigidbody2D rb;
+
+    [SerializeField] private Slider hpBar;
+
+
+
     public void InitializeCharacter(int startHealth, int startDamage, int startMoveSpeed, int startAtkSpeed, int startAtkRange) 
     {
         MaxHp = startHealth;
@@ -43,6 +50,11 @@ public abstract class Character : MonoBehaviour
     public void TakeDamage(Character other) 
     {
         Hp -= other.Damage;
+    }
+
+    public void TakeDamage(Projectile projectile)
+    {
+        Hp -= projectile.Damage;
     }
 
     public bool IsDead()

@@ -1,7 +1,13 @@
 using UnityEngine;
 
-public class Markman : Hero
+public class Markman : Hero, IShootable
 {
+    [field: SerializeField] public GameObject Bullet { get; set; }
+    [field: SerializeField] public Transform ShootPoint { get; set; }
+    public float ReloadTime { get; set; }
+    public float WaitTime { get; set; }
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,4 +29,10 @@ public class Markman : Hero
     {
         throw new System.NotImplementedException();
     }
+
+    public void Shoot()
+    {
+        throw new System.NotImplementedException();
+    }
+
 }
