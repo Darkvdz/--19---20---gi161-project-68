@@ -20,16 +20,16 @@ public class Boss : Enemy
         throw new System.NotImplementedException();
     }
 
-    public override void Chasing()
+    public override void Chasing(Hero target)
     {
         throw new System.NotImplementedException();
     }
-
+    
     public override void CoinDrop()
     {
         OnDeathDrop();
     }
-
+    
     public void OnDeathDrop() 
     {
     

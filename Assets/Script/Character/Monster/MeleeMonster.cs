@@ -16,6 +16,6 @@ public class MeleeMonster : Monster
 
     public override void AttackType()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("ATK MEELEE");
     }
 }

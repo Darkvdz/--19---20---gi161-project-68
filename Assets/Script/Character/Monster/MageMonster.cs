@@ -21,7 +21,7 @@ public class MageMonster : Monster, IShootable
 
     public override void AttackType()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("ATK Mage");
     }
 
     public void Shoot()

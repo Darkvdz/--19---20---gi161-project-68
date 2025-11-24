@@ -2,26 +2,54 @@ using UnityEngine;
 
 public abstract class Monster : Enemy
 {
+    
+    private Hero target;
+    private float lastAttackTime;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        target = FindFirstObjectByType<Hero>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (!target) return;
+        Behavior();
     }
 
     public override void Behavior()
     {
-        throw new System.NotImplementedException();
+        //float distance = Vector2.Distance(transform.position, target.transform.position);
+        Vector2 distance = transform.position - target.transform.position;
+
+        if (distance.magnitude > AtkRange)
+        {
+            Chasing(target);
+            return;
+        }
+
+        //rb.velocity = new Vector2(0, rb.velocity.y);
+
+        if (Time.time - lastAttackTime >= (1f / AtkSpeed))
+        {
+            AttackType();
+            lastAttackTime = Time.time;
+        }
+        
+        
     }
 
-    public override void Chasing(Hero target)
+    public override void Chasing(Hero targetHero)
     {
-        throw new System.NotImplementedException();
+        float direction = Mathf.Sign(targetHero.transform.position.x - transform.position.x);
+
+        rb.linearVelocity = new Vector2(direction * MoveSpeed, rb.linearVelocity.y);
+
+        transform.localScale = new Vector3(direction, 1, 1);
     }
 
     public override void CoinDrop()
