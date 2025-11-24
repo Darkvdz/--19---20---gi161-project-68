@@ -5,8 +5,7 @@ public class MeleeMonster : Monster
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeEnemy(50, 10, 3, 5, 0, 10, 7);
-        print(target);
+        base.InitializeEnemy(50, 10, 3, 5, 2, 10, 7);
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
 

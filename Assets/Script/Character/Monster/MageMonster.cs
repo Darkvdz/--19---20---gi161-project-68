@@ -10,13 +10,16 @@ public class MageMonster : Monster, IShootable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeEnemy(25, 15, 3, 3, 15, 10, 5);
+        base.InitializeEnemy(25, 15, 3, 3, 8, 10, 5);
+        rb = GetComponent<Rigidbody2D>();
+        target = FindAnyObjectByType<Hero>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!target) return;
+        Behavior();
     }
 
     public override void AttackType()

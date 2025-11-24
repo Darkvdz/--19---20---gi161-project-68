@@ -13,16 +13,20 @@ public abstract class Monster : Enemy
 
         if (distance.magnitude > AtkRange)
         {
+            print(distance.magnitude);
+            print(AtkRange);
             Chasing(target);
             return;
         }
-
-        //rb.velocity = new Vector2(0, rb.velocity.y);
-
-        if (Time.time - lastAttackTime >= (1f / AtkSpeed))
+        else
         {
-            AttackType();
-            lastAttackTime = Time.time;
+            //rb.velocity = new Vector2(0, rb.velocity.y);
+            if (Time.time - lastAttackTime >= (1f / AtkSpeed))
+            {
+                AttackType();
+                lastAttackTime = Time.time;
+            } 
+            
         }
         
         

@@ -6,8 +6,6 @@ public abstract class Enemy : Character
 
     public int ChasingSpeed { get; set; }
 
-    public int AtkRange { get; set; }
-
     public void InitializeEnemy(int startHealth, int startDamage, int startMoveSpeed, int startAtkSpeed, int startAtkRange, int startCoin, int startChasingSpeed)
     {
         base.InitializeCharacter(startHealth, startDamage, startMoveSpeed, startAtkSpeed, startAtkRange);

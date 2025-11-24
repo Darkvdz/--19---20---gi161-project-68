@@ -25,7 +25,7 @@ public abstract class Character : MonoBehaviour
 
     public int MoveSpeed { get; set; }
     public int AtkSpeed { get; set; }
-    public int AtkRange { get; set; }
+    [field:SerializeField] public int AtkRange { get; set; }
 
 
     protected Rigidbody2D rb;
