@@ -19,7 +19,7 @@ public abstract class Monster : Enemy
         throw new System.NotImplementedException();
     }
 
-    public override void Chasing()
+    public override void Chasing(Hero target)
     {
         throw new System.NotImplementedException();
     }

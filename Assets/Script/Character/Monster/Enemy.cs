@@ -23,6 +23,6 @@ public abstract class Enemy : Character
 
     public abstract void Behavior();
     public abstract void CoinDrop();
-    public abstract void Chasing();
+    public abstract void Chasing(Hero target);
 
 }
