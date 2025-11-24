@@ -3,24 +3,9 @@ using UnityEngine;
 public abstract class Monster : Enemy
 {
     
-    private Hero target;
+    [field:SerializeField] public Hero target;
     private float lastAttackTime;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        target = FindFirstObjectByType<Hero>();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!target) return;
-        Behavior();
-    }
-
+    
     public override void Behavior()
     {
         //float distance = Vector2.Distance(transform.position, target.transform.position);
@@ -49,7 +34,7 @@ public abstract class Monster : Enemy
 
         rb.linearVelocity = new Vector2(direction * MoveSpeed, rb.linearVelocity.y);
 
-        transform.localScale = new Vector3(direction, 1, 1);
+        //transform.localScale = new Vector3(direction, 1, 1);
     }
 
     public override void CoinDrop()
