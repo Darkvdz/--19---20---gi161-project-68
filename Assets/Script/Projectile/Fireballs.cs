@@ -36,7 +36,6 @@ public class Fireballs : Projectile
     void Start()
     {
         speed = 4.0f * GetShootDirection();
-        Damage = 5;
     }
     
     void Update()

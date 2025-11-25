@@ -21,10 +21,7 @@ public abstract class Monster : Enemy
                 AttackType();
                 lastAttackTime = Time.time;
             } 
-            
         }
-        
-        
     }
 
     public override void Chasing(Hero targetHero)
@@ -38,7 +35,7 @@ public abstract class Monster : Enemy
 
     public override void CoinDrop()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public abstract void AttackType();

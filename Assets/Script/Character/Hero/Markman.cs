@@ -17,12 +17,15 @@ public class Markman : Hero, IShootable
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetButtonDown("Attack"))
+        {
+            AttackType();
+        }
     }
 
     public override void AttackType()
     {
-        throw new System.NotImplementedException();
+        Shoot();
     }
 
     public override void Skill()
@@ -32,7 +35,18 @@ public class Markman : Hero, IShootable
 
     public void Shoot()
     {
-        throw new System.NotImplementedException();
+        if (WaitTime >= ReloadTime) 
+        {
+            var bullet = Instantiate(Bullet, ShootPoint.position, Quaternion.identity);
+            Arrow arrow = bullet.GetComponent<Arrow>();
+            if (arrow) 
+            {
+                arrow.InitProjectile(20, this);
+            }
+
+            WaitTime = 0.0f;
+
+        }
     }
 
 }

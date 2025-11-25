@@ -44,7 +44,7 @@ public class MageMonster : Monster, IShootable
             
             var bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
             Fireballs fireballs = bullet.GetComponent<Fireballs>();
-            if (fireballs != null) 
+            if (fireballs) 
             {
                 fireballs.InitProjectile(20, this);
                 fireballs.SetDirection(dir);
