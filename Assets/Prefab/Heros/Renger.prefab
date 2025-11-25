@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46d8c11f5e0f8417eb94c418c76406c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hero: {fileID: 0}
   maxSpeed: 10
   grounded: 0
   groundCheck: {fileID: 4593114096013405323}
@@ -353,5 +354,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AtkRange>k__BackingField: 0
   hpBar: {fileID: 0}
+  SkillWait: 0
   <Bullet>k__BackingField: {fileID: 182108, guid: c09e95db99d23f4489327a8c57f60e4c, type: 3}
   <ShootPoint>k__BackingField: {fileID: 8123272443934431890}

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SwordMan : Hero, ISlashable
@@ -8,14 +9,30 @@ public class SwordMan : Hero, ISlashable
     public float SlashTime { get; set; }
     public float WaitTime { get; set; }
 
+    private int skillATK;
+    private int currentAtk;
+
+    private float buffDuration;
+    private float buffDurationMax;
+    private bool onBuff = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeHero(100, 20, 10, 0.5f, 10);
+        base.InitializeHero(100, 15, 10, 0.5f, 10);
 
+        currentAtk = Damage;
+        skillATK = currentAtk + 10;
+
+        SkillCD = 10;
         SlashTime = AtkCD;
+
         WaitTime = 100.0f;
+        SkillWait = Mathf.Clamp(SkillWait, 0f, 10f);
+
+        buffDuration = 0;
+        buffDurationMax = 3;
 
     }
 
@@ -26,13 +43,43 @@ public class SwordMan : Hero, ISlashable
         {
             AttackType();
         }
+
+        if (Input.GetButtonDown("Skill"))
+        {
+            Skill();
+        }
+
     }
 
     private void FixedUpdate()
     {
         WaitTime += Time.fixedDeltaTime;
+        SkillWait += Time.fixedDeltaTime;
+        SkillWait = Mathf.Clamp(SkillWait, 0.0f, 10.0f);
+
+        buffDuration += Time.fixedDeltaTime;
+        buffDuration = Mathf.Clamp(buffDuration, 0.0f, 3.0f);
+
+        checkBuffSkill();
+
     }
 
+    public void checkBuffSkill()
+    {
+        if (onBuff) 
+        {
+            if (buffDuration >= buffDurationMax)
+            {
+                Damage = currentAtk;
+                onBuff = false;
+
+                SkillWait = 0.0f;
+                buffDuration = 3;
+                print("buff end" + Damage);
+            }
+        }
+        
+    }
 
     public override void AttackType()
     {
@@ -41,7 +88,14 @@ public class SwordMan : Hero, ISlashable
 
     public override void Skill()
     {
-        throw new System.NotImplementedException();
+        if ((SkillWait >= SkillCD) && !onBuff)
+        {
+            Damage = skillATK;
+            buffDuration = 0;
+            onBuff = true;
+
+            print("buff start" + Damage);
+        }
     }
     
     public void Slash()

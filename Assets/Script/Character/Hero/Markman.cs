@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class Markman : Hero, IShootable
@@ -11,10 +13,12 @@ public class Markman : Hero, IShootable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeHero(100, 20, 10, 0.2f, 10);
+        base.InitializeHero(75, 5, 7, 0.5f, 10);
 
+        SkillCD = 10;
         ReloadTime = AtkCD;
         WaitTime = 1;
+
 
     }
 
@@ -25,37 +29,62 @@ public class Markman : Hero, IShootable
         {
             AttackType();
         }
+
+        if (Input.GetButtonDown("Skill"))
+        {
+            print(SkillWait);
+            print(SkillCD);
+            print(SkillWait >= SkillCD);
+            Skill();
+        }
+
     }
 
     private void FixedUpdate()
     {
         WaitTime += Time.fixedDeltaTime;
+        SkillWait += Time.fixedDeltaTime;
+        SkillWait = Mathf.Clamp(SkillWait, 0.0f, 10.0f);
     }
 
     public override void AttackType()
     {
-        Shoot();
+        if (WaitTime >= ReloadTime)
+        {
+            Shoot();
+        }
     }
 
     public override void Skill()
     {
-        throw new System.NotImplementedException();
+        if (SkillWait >= SkillCD)
+        {
+            StartCoroutine(SkillRoutine());
+            SkillWait = 0.0f;
+        }
     }
+
+    private IEnumerator SkillRoutine()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            Shoot();
+            yield return new WaitForSeconds(0.15f);
+        }
+    }
+
 
     public void Shoot()
     {
-        if (WaitTime >= ReloadTime) 
+        var bullet = Instantiate(Bullet, ShootPoint.position, Quaternion.identity);
+        Arrow arrow = bullet.GetComponent<Arrow>();
+        if (arrow) 
         {
-            var bullet = Instantiate(Bullet, ShootPoint.position, Quaternion.identity);
-            Arrow arrow = bullet.GetComponent<Arrow>();
-            if (arrow) 
-            {
-                arrow.InitProjectile(20, this);
-            }
-
-            WaitTime = 0.0f;
-
+            arrow.InitProjectile(20, this);
         }
+
+        WaitTime = 0.0f;
+
     }
 
 }

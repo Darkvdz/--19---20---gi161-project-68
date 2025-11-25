@@ -1,3 +1,5 @@
+using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Tank : Hero, ISlashable
@@ -8,13 +10,22 @@ public class Tank : Hero, ISlashable
     public float SlashTime { get; set; }
     public float WaitTime { get; set; }
 
+    private float buffDuration;
+    private float buffDurationMax;
+    private bool onBuff = false;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeHero(100, 20, 10, 0.6f, 10);
-        
+        base.InitializeHero(200, 10, 10, 0.6f, 10);
+
+        SkillCD = 10;
         SlashTime = AtkCD;
         WaitTime = 1;
+
+        buffDuration = 0;
+        buffDurationMax = 10;
 
     }
 
@@ -25,11 +36,41 @@ public class Tank : Hero, ISlashable
         {
             AttackType();
         }
+
+        if (Input.GetButtonDown("Skill"))
+        {
+            Skill();
+        }
+
     }
     
     private void FixedUpdate()
     {
         WaitTime += Time.fixedDeltaTime;
+        SkillWait += Time.fixedDeltaTime;
+        SkillWait = Mathf.Clamp(SkillWait, 0.0f, 10.0f);
+
+        buffDuration += Time.fixedDeltaTime;
+        buffDuration = Mathf.Clamp(buffDuration, 0.0f, 10.0f);
+
+        checkBuffSkill();
+
+    }
+
+    public void checkBuffSkill()
+    {
+        if (onBuff)
+        {
+            if (buffDuration >= buffDurationMax)
+            {
+                onBuff = false;
+
+                SkillWait = 0.0f;
+                buffDuration = 10;
+                print("buff end");
+            }
+        }
+
     }
 
     public override void AttackType()
@@ -39,7 +80,13 @@ public class Tank : Hero, ISlashable
 
     public override void Skill()
     {
-        throw new System.NotImplementedException();
+        if ((SkillWait >= SkillCD) && !onBuff)
+        {
+            buffDuration = 0;
+            onBuff = true;
+
+            print("buff start");
+        }
     }
     
     public void Slash()
@@ -96,4 +143,28 @@ public class Tank : Hero, ISlashable
             WaitTime = 0.0f;
         }
     }
+
+    public override void TakeDamage(Character other)
+    {
+        base.TakeDamage(other);
+        print("take current " + Hp);
+        if (onBuff) 
+        {
+            Hp += 5;
+            print("heal" + Hp);
+        }
+    }
+
+    public override void TakeDamage(Projectile projectile)
+    {
+        base.TakeDamage(projectile);
+        print("take current " + Hp);
+        if (onBuff)
+        {
+            Hp += 7;
+            print("heal" + Hp);
+        }
+
+    }
+
 }

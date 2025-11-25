@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class Boot : Item
+public class HealPackBig : Item
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeItem(0, 0, 5);
+        base.InitializeItem(0, 10, 0);
     }
 
     // Update is called once per frame

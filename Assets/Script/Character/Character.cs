@@ -48,12 +48,12 @@ public abstract class Character : MonoBehaviour
 
     }
 
-    public void TakeDamage(Character other) 
+    public virtual void TakeDamage(Character other) 
     {
         Hp -= other.Damage;
     }
 
-    public void TakeDamage(Projectile projectile)
+    public virtual void TakeDamage(Projectile projectile)
     {
         Hp -= projectile.Damage;
     }

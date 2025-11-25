@@ -3,8 +3,10 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour 
 {
+	public Character hero;
 
-	public float maxSpeed = 10f;
+
+    public float maxSpeed = 10f;
 	bool facingRight = true;
 
 	Rigidbody2D r2d;
@@ -20,7 +22,12 @@ public class PlayerController : MonoBehaviour
 	void Start () {
 		r2d = GetComponent<Rigidbody2D>	();
 		anim = GetComponent<Animator>();
-	}
+		hero = GetComponent<Character>();
+
+        maxSpeed = hero.MoveSpeed;
+
+
+    }
 	
 	void Update(){
 		if( grounded && Input.GetKeyDown(KeyCode.Space) ){
