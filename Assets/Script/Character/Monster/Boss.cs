@@ -59,7 +59,9 @@ public abstract class Boss : Enemy
 
         rb.linearVelocity = new Vector2(direction * MoveSpeed, rb.linearVelocity.y);
 
-        //transform.localScale = new Vector3(direction, 1, 1);
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * direction;
+        transform.localScale = scale;
     }
 
     public override void CoinDrop()

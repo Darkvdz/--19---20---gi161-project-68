@@ -3,6 +3,9 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
     public Transform target;
+    private Hero targetHero;
+
+
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
 
@@ -13,6 +16,11 @@ public class Camera : MonoBehaviour
     {
         fixedZ = transform.position.z;
         fixedY = transform.position.y;
+
+        targetHero = FindAnyObjectByType<Hero>(); 
+        if (targetHero != null)
+            target = targetHero.transform;
+
     }
 
     void LateUpdate()
