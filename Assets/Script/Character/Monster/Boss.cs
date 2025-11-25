@@ -13,7 +13,7 @@ public abstract class Boss : Enemy
     protected int currentPhase = 1;
 
 
-    public void InitializeBoss(int startHealth, int startDamage, int startMoveSpeed, int startAtkSpeed, int startAtkRange, int startCoin, int startChasingSpeed, int startAttackRangePhase2, float percentChangePhase)
+    public void InitializeBoss(int startHealth, int startDamage, int startMoveSpeed, float startAtkSpeed, int startAtkRange, int startCoin, int startChasingSpeed, int startAttackRangePhase2, float percentChangePhase)
     {
         base.InitializeEnemy(startHealth, startDamage, startMoveSpeed, startAtkSpeed, startAtkRange, startCoin, startChasingSpeed);
 

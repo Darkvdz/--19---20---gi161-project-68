@@ -14,7 +14,7 @@ public class Markman : Hero, IShootable
         base.InitializeHero(100, 20, 10, 2, 10);
 
         ReloadTime = AtkCD;
-        WaitTime = 100;
+        WaitTime = 1;
 
     }
 

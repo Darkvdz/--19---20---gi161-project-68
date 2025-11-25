@@ -9,7 +9,7 @@ public abstract class Enemy : Character
     [field: SerializeField] public Hero target;
     protected float lastAttackTime;
 
-    public void InitializeEnemy(int startHealth, int startDamage, int startMoveSpeed, int startAtkSpeed, int startAtkRange, int startCoin, int startChasingSpeed)
+    public void InitializeEnemy(int startHealth, int startDamage, int startMoveSpeed, float startAtkSpeed, int startAtkRange, int startCoin, int startChasingSpeed)
     {
         base.InitializeCharacter(startHealth, startDamage, startMoveSpeed, startAtkSpeed, startAtkRange);
 

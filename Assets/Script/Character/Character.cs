@@ -25,7 +25,7 @@ public abstract class Character : MonoBehaviour
     public int Damage { get; set; }
 
     public int MoveSpeed { get; set; }
-    public int AtkCD { get; set; }
+    public float AtkCD { get; set; }
     [field:SerializeField] public int AtkRange { get; set; }
 
 
@@ -35,7 +35,7 @@ public abstract class Character : MonoBehaviour
 
 
 
-    public void InitializeCharacter(int startHealth, int startDamage, int startMoveSpeed, int startAtkCD, int startAtkRange) 
+    public void InitializeCharacter(int startHealth, int startDamage, int startMoveSpeed, float startAtkCD, int startAtkRange) 
     {
         MaxHp = startHealth;
         Hp = startHealth;

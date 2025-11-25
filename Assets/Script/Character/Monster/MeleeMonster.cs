@@ -15,7 +15,7 @@ public class MeleeMonster : Monster, ISlashable
         target = FindAnyObjectByType<Hero>();
 
         SlashTime = AtkCD;
-        WaitTime = 100;
+        WaitTime = 1;
 
     }
 

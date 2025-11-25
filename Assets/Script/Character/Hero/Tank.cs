@@ -14,7 +14,7 @@ public class Tank : Hero, ISlashable
         base.InitializeHero(100, 20, 10, 5, 10);
         
         SlashTime = AtkCD;
-        WaitTime = 100.0f;
+        WaitTime = 1;
 
     }
 
