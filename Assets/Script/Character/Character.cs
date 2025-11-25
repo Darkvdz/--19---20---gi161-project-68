@@ -25,7 +25,7 @@ public abstract class Character : MonoBehaviour
     public int Damage { get; set; }
 
     public int MoveSpeed { get; set; }
-    public int AtkSpeed { get; set; }
+    public int AtkCD { get; set; }
     [field:SerializeField] public int AtkRange { get; set; }
 
 
@@ -43,7 +43,7 @@ public abstract class Character : MonoBehaviour
         Damage = startDamage;
         MoveSpeed = startMoveSpeed;
 
-        AtkSpeed = startAtkSpeed;
+        AtkCD = startAtkSpeed;
         AtkRange = startAtkRange;
 
     }

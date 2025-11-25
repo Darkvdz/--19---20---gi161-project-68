@@ -12,6 +12,10 @@ public class Markman : Hero, IShootable
     void Start()
     {
         base.InitializeHero(100, 20, 10, 5, 10);
+
+        ReloadTime = AtkCD;
+        WaitTime = 100;
+
     }
 
     // Update is called once per frame
@@ -21,6 +25,11 @@ public class Markman : Hero, IShootable
         {
             AttackType();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        WaitTime += Time.fixedDeltaTime;
     }
 
     public override void AttackType()

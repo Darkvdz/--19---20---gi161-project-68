@@ -16,7 +16,7 @@ public abstract class Monster : Enemy
         else
         {
             //rb.velocity = new Vector2(0, rb.velocity.y);
-            if (Time.time - lastAttackTime >= (1f / AtkSpeed))
+            if (Time.time - lastAttackTime >= (1f / AtkCD))
             {
                 AttackType();
                 lastAttackTime = Time.time;
@@ -30,7 +30,9 @@ public abstract class Monster : Enemy
 
         rb.linearVelocity = new Vector2(direction * MoveSpeed, rb.linearVelocity.y);
 
-        //transform.localScale = new Vector3(direction, 1, 1);
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * direction; 
+        transform.localScale = scale;
     }
 
     public override void CoinDrop()

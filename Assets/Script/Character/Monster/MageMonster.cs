@@ -14,8 +14,8 @@ public class MageMonster : Monster, IShootable
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
         
-        ReloadTime = 1.0f;
-        WaitTime = 1.0f;
+        ReloadTime = AtkCD;
+        WaitTime = 100;
     }
 
     // Update is called once per frame

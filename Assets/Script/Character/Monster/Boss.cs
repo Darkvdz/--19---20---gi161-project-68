@@ -44,7 +44,7 @@ public abstract class Boss : Enemy
         else
         {
             //rb.velocity = new Vector2(0, rb.velocity.y);
-            if (Time.time - lastAttackTime >= (1f / AtkSpeed))
+            if (Time.time - lastAttackTime >= (1f / AtkCD))
             {
                 AttackType(currentPhase);
                 lastAttackTime = Time.time;
