@@ -16,20 +16,7 @@ public abstract class Projectile : MonoBehaviour
         Shooter = newShooter;
     }
 
-    public int GetShootDirection()
-    {
-        float value = Shooter.ShootPoint.position.x - Shooter.ShootPoint.parent.position.x;
-
-        if (value > 0)
-        {
-            return 1; //face right
-        }
-        else
-        {
-            return -1; //face left
-        }
-
-    }
+    public abstract int GetShootDirection();
 
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -33,4 +33,18 @@ public class Arrow : Projectile
     {
         Move();
     }
+
+    public override int GetShootDirection()
+    {
+        float value = Shooter.ShootPoint.position.x - Shooter.ShootPoint.parent.position.x;
+
+        if (value > 0)
+        {
+            return 1; //face right
+        }
+        else
+        {
+            return -1; //face left
+        }
+    }
 }

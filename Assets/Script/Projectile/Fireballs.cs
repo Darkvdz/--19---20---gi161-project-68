@@ -4,6 +4,8 @@ public class Fireballs : Projectile
 {
     [SerializeField] private float speed;
     private Vector2 direction;
+
+    private bool alreadyDealDamage = false;
    
     public override void Move()
     {
@@ -21,8 +23,9 @@ public class Fireballs : Projectile
 
     public override void OnHitWith(Character character)
     {
-        if (character is Hero)
+        if ((character is Hero) && !alreadyDealDamage)
         {
+            alreadyDealDamage = true;
             character.TakeDamage(this);
             Destroy(this.gameObject);
         }
@@ -44,5 +47,24 @@ public class Fireballs : Projectile
     private void FixedUpdate()
     {
         Move();
+    }
+
+    public override int GetShootDirection()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+            return 1; // default face right
+
+        float value = player.transform.position.x - transform.position.x;
+
+        if (value > 0)
+        {
+            return 1; //face right
+        }
+        else
+        {
+            return -1; //face left
+        }
+        ;
     }
 }
