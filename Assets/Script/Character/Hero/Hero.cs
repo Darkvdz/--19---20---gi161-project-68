@@ -6,9 +6,9 @@ public abstract class Hero : Character
 
     public Item[] ItemEquip { get; set; }
 
-    public void InitializeHero(int startHealth, int startDamage, int startMoveSpeed, int startAtkSpeed, int startAtkRange)
+    public void InitializeHero(int startHealth, int startDamage, int startMoveSpeed, int startAtkCD, int startAtkRange)
     {
-        base.InitializeCharacter(startHealth, startDamage, startMoveSpeed, startAtkSpeed, startAtkRange);
+        base.InitializeCharacter(startHealth, startDamage, startMoveSpeed, startAtkCD, startAtkRange);
 
     }
     public abstract void AttackType();

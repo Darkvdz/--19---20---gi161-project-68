@@ -6,12 +6,11 @@ public class MeleeMonster : Monster, ISlashable
     [field: SerializeField] public Transform SlashPoint { get; set; }
     public float SlashTime { get; set; }
     public float WaitTime { get; set; }
-
-
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeEnemy(50, 10, 3, 5, 2, 10, 7);
+        base.InitializeEnemy(50, 10, 3, 3, 2, 10, 7);
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
 
@@ -58,7 +57,7 @@ public class MeleeMonster : Monster, ISlashable
                     float worldWidth = sr.sprite.bounds.size.x;
                     float worldHeight = sr.sprite.bounds.size.y;
 
-                    // »ÃÑº scale ãËé match hitbox
+                    // ï¿½ï¿½Ñº scale ï¿½ï¿½ï¿½ match hitbox
                     float scaleX = hitbox.size.x / worldWidth;
                     float scaleY = hitbox.size.y / worldHeight;
 
@@ -75,8 +74,8 @@ public class MeleeMonster : Monster, ISlashable
 
             Collider2D[] hits = Physics2D.OverlapBoxAll
             (
-                SlashPoint.position,                       // ¨Ø´¡ÅÒ§ collider
-                SlashPoint.GetComponent<BoxCollider2D>().size, 0 // ¢¹Ò´ collider
+                SlashPoint.position,                      
+                SlashPoint.GetComponent<BoxCollider2D>().size, 0 
 
             );
 

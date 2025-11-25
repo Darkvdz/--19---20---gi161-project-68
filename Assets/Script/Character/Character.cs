@@ -35,7 +35,7 @@ public abstract class Character : MonoBehaviour
 
 
 
-    public void InitializeCharacter(int startHealth, int startDamage, int startMoveSpeed, int startAtkSpeed, int startAtkRange) 
+    public void InitializeCharacter(int startHealth, int startDamage, int startMoveSpeed, int startAtkCD, int startAtkRange) 
     {
         MaxHp = startHealth;
         Hp = startHealth;
@@ -43,7 +43,7 @@ public abstract class Character : MonoBehaviour
         Damage = startDamage;
         MoveSpeed = startMoveSpeed;
 
-        AtkCD = startAtkSpeed;
+        AtkCD = startAtkCD;
         AtkRange = startAtkRange;
 
     }

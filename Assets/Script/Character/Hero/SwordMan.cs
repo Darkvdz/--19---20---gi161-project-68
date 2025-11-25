@@ -15,7 +15,7 @@ public class SwordMan : Hero, ISlashable
         base.InitializeHero(100, 20, 10, 5, 10);
 
         SlashTime = AtkCD;
-        WaitTime = 100;
+        WaitTime = 100.0f;
 
     }
 
@@ -43,8 +43,7 @@ public class SwordMan : Hero, ISlashable
     {
         throw new System.NotImplementedException();
     }
-
-   
+    
     public void Slash()
     {
         if (WaitTime >= SlashTime)
