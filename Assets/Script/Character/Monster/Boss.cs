@@ -6,6 +6,8 @@ public class Boss : Enemy
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        base.InitializeEnemy(100,35,5,7,5,20,12);
+        
 
     }
 
