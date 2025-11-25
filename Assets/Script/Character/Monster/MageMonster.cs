@@ -13,6 +13,9 @@ public class MageMonster : Monster, IShootable
         base.InitializeEnemy(25, 15, 3, 3, 8, 10, 5);
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
+        
+        ReloadTime = 1.0f;
+        WaitTime = 1.0f;
     }
 
     // Update is called once per frame
@@ -21,14 +24,34 @@ public class MageMonster : Monster, IShootable
         if (!target) return;
         Behavior();
     }
+    
+    private void FixedUpdate()
+    {
+        WaitTime += Time.fixedDeltaTime;
+    }
 
     public override void AttackType()
     {
-        Debug.Log("ATK Mage");
+        //Debug.Log("ATK Mage");
+        Shoot();
     }
 
     public void Shoot()
     {
-        throw new System.NotImplementedException();
+        if (WaitTime >= ReloadTime) 
+        {
+            Vector2 dir = (target.transform.position - transform.position).normalized;
+            
+            var bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
+            Fireballs fireballs = bullet.GetComponent<Fireballs>();
+            if (fireballs != null) 
+            {
+                fireballs.InitProjectile(20, this);
+                fireballs.SetDirection(dir);
+            }
+            
+            WaitTime = 0.0f;
+
+        }
     }
 }

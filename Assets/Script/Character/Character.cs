@@ -11,7 +11,8 @@ public abstract class Character : MonoBehaviour
         set 
         { 
             hp = (value <= 0) ? 0 : (value >= MaxHp) ? MaxHp : value;
-
+            print(this.name + " hp is " + hp);
+            
             if (IsDead()) 
             {
                 OnDeath();

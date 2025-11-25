@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour
 {
-    public int Damage { get; set; }
+    public int Damage;
     public IShootable Shooter;
 
 
