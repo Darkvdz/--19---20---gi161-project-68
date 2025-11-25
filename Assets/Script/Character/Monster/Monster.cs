@@ -3,9 +3,6 @@ using UnityEngine;
 public abstract class Monster : Enemy
 {
     
-    [field:SerializeField] public Hero target;
-    private float lastAttackTime;
-    
     public override void Behavior()
     {
         //float distance = Vector2.Distance(transform.position, target.transform.position);
@@ -13,8 +10,6 @@ public abstract class Monster : Enemy
 
         if (distance.magnitude > AtkRange)
         {
-            print(distance.magnitude);
-            print(AtkRange);
             Chasing(target);
             return;
         }
