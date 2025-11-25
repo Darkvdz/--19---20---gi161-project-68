@@ -12,7 +12,7 @@ public class SwordMan : Hero, ISlashable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeHero(100, 20, 10, 5, 10);
+        base.InitializeHero(100, 20, 10, 0.5f, 10);
 
         SlashTime = AtkCD;
         WaitTime = 100.0f;

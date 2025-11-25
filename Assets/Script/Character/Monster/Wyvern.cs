@@ -11,7 +11,7 @@ public class Wyvern : Boss, IShootable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeBoss(100, 35, 5, 10, 10, 50, 5, 3, 30);
+        base.InitializeBoss(100, 35, 5, 1.5f, 10, 50, 5, 3, 30);
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
     }

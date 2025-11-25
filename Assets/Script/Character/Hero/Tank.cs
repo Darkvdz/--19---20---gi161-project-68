@@ -11,7 +11,7 @@ public class Tank : Hero, ISlashable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeHero(100, 20, 10, 5, 10);
+        base.InitializeHero(100, 20, 10, 0.6f, 10);
         
         SlashTime = AtkCD;
         WaitTime = 1;
@@ -72,7 +72,7 @@ public class Tank : Hero, ISlashable
                     slash.transform.localScale = new Vector3(scaleX, scaleY, 1f);
                 }
 
-                Destroy(slash, 0.3f);
+                Destroy(slash, 0.1f);
             }
 
             //Vector2 boxSize = new Vector2(AtkRange, AtkRange * 0.6f); 

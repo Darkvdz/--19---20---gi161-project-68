@@ -11,7 +11,7 @@ public class Grimlock : Boss, IShootable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeBoss(150, 25, 3, 8, 3, 50, 3, 8, 60);
+        base.InitializeBoss(150, 25, 3, 0.8f, 3, 50, 3, 8, 60);
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
     }
