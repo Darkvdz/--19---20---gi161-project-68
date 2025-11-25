@@ -17,9 +17,9 @@ public class MeleeMonster : Monster
         if (!target) return;
         Behavior();
     }
-    
+
     public override void AttackType()
     {
-        Debug.Log("ATK MEELEE");
+        
     }
 }
