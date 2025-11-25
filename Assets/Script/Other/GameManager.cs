@@ -61,14 +61,17 @@ public class GameManager : MonoBehaviour
         currentLevel += 1;
         if (currentLevel == 2) 
         {
+            CompleteLv1 = true;
             StartLevel2();
         }
         else if (currentLevel == 3)
         {
+            CompleteLv2 = true;
             StartLevel3();
         }
         else if (currentLevel >= 4)
         {
+            CompleteLv3 = true;
             CompleteGame();
         }
 
