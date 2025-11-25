@@ -23,5 +23,15 @@ public abstract class Hero : Character
         Destroy(this.gameObject);
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        Item item = collision.GetComponent<Item>();
+        if (item)
+        {
+            item.AddjustPlayerStatus(this);
+        }
+    }
+
+
 
 }

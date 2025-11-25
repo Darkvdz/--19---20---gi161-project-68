@@ -4,6 +4,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public abstract class Boss : Enemy
 {
+    [field: SerializeField] public GameObject ItemDrop;
+
     private bool changedStage = false;
 
     public int AttackRangePhase2 { get; set; }
@@ -71,7 +73,11 @@ public abstract class Boss : Enemy
     
     public void OnDeathDrop() 
     {
-    
+        if (ItemDrop != null)
+        {
+            Vector3 dropPos = transform.position + new Vector3(0, 0.05f, 0);
+            Instantiate(ItemDrop, dropPos, Quaternion.identity);
+        }
     }
 
     public abstract void AttackType(int currentPhase);

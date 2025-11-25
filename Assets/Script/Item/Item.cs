@@ -2,18 +2,12 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    public int AddHp { get; set; }
+    public int ItemStatus { get; set; }
 
-    public int AddDamage { get; set; }
-
-    public int AddSpeed { get; set; }
-
-    public void InitializeItem(int statusHp, int statusDamage, int statusSpeed)
+    public void InitializeItem(int Status)
     {
-        AddHp = statusHp;
-        AddDamage = statusDamage;
-        AddSpeed = statusSpeed;
+        ItemStatus = Status;
     }
 
-    public abstract void AddjustPlayerStatus();
+    public abstract void AddjustPlayerStatus(Character hero);
 }

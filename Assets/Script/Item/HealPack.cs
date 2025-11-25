@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class HealPackBig : Item
+public class HealPack : Item
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeItem(0, 10, 0);
+        base.InitializeItem(100);
     }
 
     // Update is called once per frame
@@ -14,8 +14,9 @@ public class HealPackBig : Item
 
     }
 
-    public override void AddjustPlayerStatus()
+    public override void AddjustPlayerStatus(Character hero)
     {
-        throw new System.NotImplementedException();
+        hero.Hp += ItemStatus;
+        Destroy(this.gameObject);
     }
 }

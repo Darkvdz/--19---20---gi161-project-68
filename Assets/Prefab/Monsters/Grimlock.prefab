@@ -257,6 +257,7 @@ MonoBehaviour:
   <AtkRange>k__BackingField: 0
   hpBar: {fileID: 0}
   target: {fileID: 0}
+  ItemDrop: {fileID: 8844742344051060368, guid: e7d64f0527da42348ab7fc456462a2c6, type: 3}
   <Bullet>k__BackingField: {fileID: 182108, guid: a5638a192258f4059b0e074542d33fbc, type: 3}
   <ShootPoint>k__BackingField: {fileID: 0}
   <SlashEffect>k__BackingField: {fileID: 8103651512560070264, guid: 3e2236fd11d7bbb4b815903d87aac3d7, type: 3}
