@@ -80,7 +80,7 @@ public class Markman : Hero, IShootable
         Arrow arrow = bullet.GetComponent<Arrow>();
         if (arrow) 
         {
-            arrow.InitProjectile(20, this);
+            arrow.InitProjectile(Damage, this);
         }
 
         WaitTime = 0.0f;

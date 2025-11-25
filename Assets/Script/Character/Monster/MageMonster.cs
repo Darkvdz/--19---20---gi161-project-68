@@ -10,7 +10,7 @@ public class MageMonster : Monster, IShootable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeEnemy(25, 15, 3, 0.6f, 8, 10, 5);
+        base.InitializeEnemy(15, 7, 1, 1.5f, 8, 10, 5);
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
         
@@ -46,7 +46,7 @@ public class MageMonster : Monster, IShootable
             Fireballs fireballs = bullet.GetComponent<Fireballs>();
             if (fireballs) 
             {
-                fireballs.InitProjectile(20, this);
+                fireballs.InitProjectile(Damage, this);
                 fireballs.SetDirection(dir);
             }
             

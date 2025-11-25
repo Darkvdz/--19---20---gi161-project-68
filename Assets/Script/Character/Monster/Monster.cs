@@ -37,7 +37,7 @@ public abstract class Monster : Enemy
 
     public override void CoinDrop()
     {
-        
+        GameManager.Instance.MonsterKilled(this.gameObject);
     }
 
     public abstract void AttackType();

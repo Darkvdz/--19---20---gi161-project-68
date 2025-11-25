@@ -26,10 +26,20 @@ public abstract class Hero : Character
     public void OnTriggerEnter2D(Collider2D collision)
     {
         Item item = collision.GetComponent<Item>();
+        WarpPoint warp = collision.GetComponent<WarpPoint>();
+        print("work");
+
         if (item)
         {
             item.AddjustPlayerStatus(this);
         }
+        else if (warp) 
+        {
+            print("warp");
+            warp.WarpPlayer(this.gameObject);
+        }
+
+
     }
 
 

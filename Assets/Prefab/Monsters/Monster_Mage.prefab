@@ -178,5 +178,5 @@ MonoBehaviour:
   <AtkRange>k__BackingField: 0
   hpBar: {fileID: 0}
   target: {fileID: 0}
-  <Bullet>k__BackingField: {fileID: 0}
+  <Bullet>k__BackingField: {fileID: 182108, guid: a5638a192258f4059b0e074542d33fbc, type: 3}
   <ShootPoint>k__BackingField: {fileID: 0}

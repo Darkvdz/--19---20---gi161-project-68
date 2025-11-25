@@ -10,7 +10,7 @@ public class MeleeMonster : Monster, ISlashable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.InitializeEnemy(50, 10, 3, 0.8f, 2, 10, 7);
+        base.InitializeEnemy(25, 5, 1, 1f, 2, 10, 7);
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
 

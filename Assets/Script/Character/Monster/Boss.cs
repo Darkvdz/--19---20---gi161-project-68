@@ -69,6 +69,7 @@ public abstract class Boss : Enemy
     public override void CoinDrop()
     {
         OnDeathDrop();
+        GameManager.Instance.BossKilled();
     }
     
     public void OnDeathDrop() 
