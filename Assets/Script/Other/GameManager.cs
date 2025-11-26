@@ -6,6 +6,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    
+    [Header("Hero Settings")] 
+    public GameObject[] heroPrefabs; 
 
     public int MonsterDeadCount = 0;  
     public int MonsterToKill = 15;
@@ -47,6 +50,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        
+        SpawnHero();
 
         if (WarpPointLv1 != null)
             WarpPointLv1.SetActive(false);
@@ -56,6 +61,23 @@ public class GameManager : MonoBehaviour
             WarpPointLv3.SetActive(false);
 
         StartLevel1();
+    }
+    
+    void SpawnHero()
+    {
+        // อ่านค่าที่ส่งมาจากหน้าเมนู (ถ้าไม่มีจะใช้ 0 คือ Maskman)
+        int selectedID = PlayerPrefs.GetInt("SelectedHero", 0);
+
+        // เช็คว่ามีข้อมูล Prefab ครบไหม และจุดเกิด Lv1 มีไหม
+        if (heroPrefabs.Length > selectedID && spawnPointLv1 != null)
+        {
+            // เสกตัวละครตาม ID ที่จุดเกิด Level 1
+            Instantiate(heroPrefabs[selectedID], spawnPointLv1.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("Error: ลืมใส่ Hero Prefab หรือลืมใส่ SpawnPointLv1 ครับ!");
+        }
     }
 
     public void nextLevel() 
@@ -140,15 +162,15 @@ public class GameManager : MonoBehaviour
                 GameObject monster = Instantiate(MonsterPrefab[randomIndex], monsterSpawn.position, Quaternion.identity);
                 spawnedMonsters.Add(monster);
 
-                yield return new WaitForSeconds(1f); // delay ��͡�� spawn 1 ���
+                yield return new WaitForSeconds(1f); // delay ��͡�� spawn 1 ���
             }
             else
             {
-                yield return null; // �� frame �Ѵ����ǵ�Ǩ�ͺ����
+                yield return null; // �� frame �Ѵ����ǵ�Ǩ�ͺ����
             }
         }
 
-        // �ú 15 ������� spawn ���
+        
         SpawnBoss();
         if (onLastLevel) 
         {
@@ -188,17 +210,17 @@ public class GameManager : MonoBehaviour
             if(BossDeadCount == 1) 
             {
                 if (WarpPointLv1 != null)
-                    WarpPointLv1.SetActive(true);  // �ʴ��һ
+                    WarpPointLv1.SetActive(true);  // �ʴ��һ
             }
             else if (BossDeadCount == 2)
             {
                 if (WarpPointLv2 != null)
-                    WarpPointLv2.SetActive(true);  // �ʴ��һ
+                    WarpPointLv2.SetActive(true);  // �ʴ��һ
             }
             else if (BossDeadCount >= 4)
             {
                 if (WarpPointLv3 != null)
-                    WarpPointLv3.SetActive(true);  // �ʴ��һ
+                    WarpPointLv3.SetActive(true);  // �ʴ��һ
             }
 
         }
