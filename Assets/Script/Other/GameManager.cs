@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     
     [Header("Hero Settings")] 
-    public GameObject[] heroPrefabs; 
+
+    public List<GameObject> heroPrefabs = new List<GameObject>(); 
 
     public int MonsterDeadCount = 0;  
     public int MonsterToKill = 15;
@@ -69,7 +70,7 @@ public class GameManager : MonoBehaviour
         int selectedID = PlayerPrefs.GetInt("SelectedHero", 0);
 
         // เช็คว่ามีข้อมูล Prefab ครบไหม และจุดเกิด Lv1 มีไหม
-        if (heroPrefabs.Length > selectedID && spawnPointLv1 != null)
+        if (heroPrefabs.Count > selectedID && spawnPointLv1 != null)
         {
             // เสกตัวละครตาม ID ที่จุดเกิด Level 1
             Instantiate(heroPrefabs[selectedID], spawnPointLv1.position, Quaternion.identity);

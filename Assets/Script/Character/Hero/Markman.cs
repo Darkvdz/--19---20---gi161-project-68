@@ -11,10 +11,11 @@ public class Markman : Hero, IShootable
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         //75/5
         base.InitializeHero(1500, 150, 7, 0.5f, 10);
+
 
         SkillCD = 10;
         ReloadTime = AtkCD;

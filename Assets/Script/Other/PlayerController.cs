@@ -19,11 +19,13 @@ public class PlayerController : MonoBehaviour
 	public float jumpForce = 700.0f;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		r2d = GetComponent<Rigidbody2D>	();
 		anim = GetComponent<Animator>();
 		hero = GetComponent<Character>();
 
+		print(hero.MoveSpeed);
         maxSpeed = hero.MoveSpeed;
 
 
