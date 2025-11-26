@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
             WarpPointLv1.SetActive(false);
         if (WarpPointLv2 != null)
             WarpPointLv2.SetActive(false);
+        if (WarpPointLv3 != null)
+            WarpPointLv3.SetActive(false);
 
         StartLevel1();
     }
@@ -59,6 +61,9 @@ public class GameManager : MonoBehaviour
     public void nextLevel() 
     {
         currentLevel += 1;
+
+        print(currentLevel);
+
         if (currentLevel == 2) 
         {
             CompleteLv1 = true;
@@ -66,6 +71,7 @@ public class GameManager : MonoBehaviour
         }
         else if (currentLevel == 3)
         {
+            onLastLevel = true;
             CompleteLv2 = true;
             StartLevel3();
         }
@@ -95,7 +101,7 @@ public class GameManager : MonoBehaviour
     public void StartLevel2()
     {
         MonsterDeadCount = 0;
-        BossDeadCount = 0;
+
         MonsterToKill = 15;
         numberOfBoss = 1;
 
@@ -109,7 +115,7 @@ public class GameManager : MonoBehaviour
     public void StartLevel3()
     {
         MonsterDeadCount = 0;
-        BossDeadCount = 0;
+
         MonsterToKill = 20;
         numberOfBoss = 0;
 
@@ -125,11 +131,7 @@ public class GameManager : MonoBehaviour
     {
         while (MonsterDeadCount < MonsterToKill)
         {
-            // ถ้า spawnedMonsters ยังไม่เต็ม MaxConcurrentMonsters และรวมกับตัวตายยังไม่เกิน MonsterToKill
-            print("1" + (MonsterDeadCount + spawnedMonsters.Count < MonsterToKill));
-            print("MonsterDeadCount" + MonsterDeadCount);
-            print("spawnedMonsters" + spawnedMonsters.Count);
-            print("MonsterToKill" + MonsterToKill);
+            
 
             if (spawnedMonsters.Count < MaxConcurrentMonsters &&
                 MonsterDeadCount + spawnedMonsters.Count < MonsterToKill)
@@ -138,7 +140,7 @@ public class GameManager : MonoBehaviour
                 GameObject monster = Instantiate(MonsterPrefab[randomIndex], monsterSpawn.position, Quaternion.identity);
                 spawnedMonsters.Add(monster);
 
-                yield return new WaitForSeconds(2f); // delay ต่อการ spawn 1 ตัว
+                yield return new WaitForSeconds(1f); // delay ต่อการ spawn 1 ตัว
             }
             else
             {
@@ -183,10 +185,22 @@ public class GameManager : MonoBehaviour
         print(BossDeadCount);
         if (BossDeadCount >= BossToKill)
         {
-            print("complete");
-            CompleteLv1 = true;
-            if (WarpPointLv1 != null)
-                WarpPointLv1.SetActive(true);  // แสดงวาป
+            if(BossDeadCount == 1) 
+            {
+                if (WarpPointLv1 != null)
+                    WarpPointLv1.SetActive(true);  // แสดงวาป
+            }
+            else if (BossDeadCount == 2)
+            {
+                if (WarpPointLv2 != null)
+                    WarpPointLv2.SetActive(true);  // แสดงวาป
+            }
+            else if (BossDeadCount >= 4)
+            {
+                if (WarpPointLv3 != null)
+                    WarpPointLv3.SetActive(true);  // แสดงวาป
+            }
+
         }
     }
 
