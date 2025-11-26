@@ -66,13 +66,10 @@ public class GameManager : MonoBehaviour
     
     void SpawnHero()
     {
-        // อ่านค่าที่ส่งมาจากหน้าเมนู (ถ้าไม่มีจะใช้ 0 คือ Maskman)
         int selectedID = PlayerPrefs.GetInt("SelectedHero", 0);
-
-        // เช็คว่ามีข้อมูล Prefab ครบไหม และจุดเกิด Lv1 มีไหม
+        
         if (heroPrefabs.Count > selectedID && spawnPointLv1 != null)
         {
-            // เสกตัวละครตาม ID ที่จุดเกิด Level 1
             Instantiate(heroPrefabs[selectedID], spawnPointLv1.position, Quaternion.identity);
         }
         else
@@ -105,8 +102,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
-
+    
     public void StartLevel1()
     {
         MonsterDeadCount = 0;
@@ -163,11 +159,11 @@ public class GameManager : MonoBehaviour
                 GameObject monster = Instantiate(MonsterPrefab[randomIndex], monsterSpawn.position, Quaternion.identity);
                 spawnedMonsters.Add(monster);
 
-                yield return new WaitForSeconds(1f); // delay ��͡�� spawn 1 ���
+                yield return new WaitForSeconds(1f); 
             }
             else
             {
-                yield return null; // �� frame �Ѵ����ǵ�Ǩ�ͺ����
+                yield return null; 
             }
         }
 
@@ -211,17 +207,17 @@ public class GameManager : MonoBehaviour
             if(BossDeadCount == 1) 
             {
                 if (WarpPointLv1 != null)
-                    WarpPointLv1.SetActive(true);  // �ʴ��һ
+                    WarpPointLv1.SetActive(true);
             }
             else if (BossDeadCount == 2)
             {
                 if (WarpPointLv2 != null)
-                    WarpPointLv2.SetActive(true);  // �ʴ��һ
+                    WarpPointLv2.SetActive(true);  
             }
             else if (BossDeadCount >= 4)
             {
                 if (WarpPointLv3 != null)
-                    WarpPointLv3.SetActive(true);  // �ʴ��һ
+                    WarpPointLv3.SetActive(true);  
             }
 
         }
@@ -229,7 +225,11 @@ public class GameManager : MonoBehaviour
 
     public void CompleteGame() 
     {
-        print("end game");
+        PauseSystem system = FindAnyObjectByType<PauseSystem>();
+        if (system != null)
+        {
+            system.ShowVictory();
+        }
     }
 
 

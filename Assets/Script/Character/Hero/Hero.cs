@@ -20,6 +20,13 @@ public abstract class Hero : Character
 
     public override void OnDeath()
     {
+        PauseSystem system = FindAnyObjectByType<PauseSystem>();
+        
+        if (system != null)
+        {
+            system.ShowGameOver();
+        }
+        
         Destroy(this.gameObject);
     }
 

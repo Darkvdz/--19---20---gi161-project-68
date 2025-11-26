@@ -14,7 +14,7 @@ public class Markman : Hero, IShootable
     void Awake()
     {
         //75/5
-        base.InitializeHero(1500, 150, 7, 0.5f, 10);
+        base.InitializeHero(75, 5, 7, 0.5f, 10);
 
 
         SkillCD = 10;

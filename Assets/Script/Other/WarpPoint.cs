@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WarpPoint : MonoBehaviour
 {
-    public Transform WarpTarget; // จุดปลายทางใน scene เดียวกัน
+    public Transform WarpTarget; 
 
     private bool alreadyWarp = false;
 
@@ -12,7 +12,11 @@ public class WarpPoint : MonoBehaviour
         if (!alreadyWarp)
         {
             alreadyWarp = true;
-            player.transform.position = WarpTarget.position;
+            
+            if (WarpTarget != null)
+            {
+                player.transform.position = WarpTarget.position;
+            }
             GameManager.Instance.nextLevel();
         }
 
