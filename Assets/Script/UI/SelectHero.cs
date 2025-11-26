@@ -9,4 +9,9 @@ public class SelectHero : MonoBehaviour
         
         SceneManager.LoadScene("SampleScene"); 
     }
+    
+    public void BackToMain()
+    {
+        SceneManager.LoadScene("Main Menu"); 
+    }
 }
