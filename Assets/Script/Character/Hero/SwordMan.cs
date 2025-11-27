@@ -20,6 +20,9 @@ public class SwordMan : Hero, ISlashable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        base.Awake();
+        
+        anim = GetComponentInChildren<Animator>();
         //100/15
         base.InitializeHero(1000, 1000, 10, 0.5f, 10);
 
@@ -84,6 +87,7 @@ public class SwordMan : Hero, ISlashable
 
     public override void AttackType()
     {
+        PlayAttackAnim();
         Slash();
     }
 
