@@ -24,6 +24,13 @@ public class Arrow : Projectile
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        int dir = GetShootDirection();
+        
+        speed = 4.0f * dir;
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * dir;
+        transform.localScale = scale;
+        
         speed = 4.0f * GetShootDirection();
     }
 
