@@ -19,6 +19,18 @@ public class Fireballs : Projectile
     public void SetDirection(Vector2 dir)
     {
         direction = dir.normalized;
+        
+        Vector3 scale = transform.localScale;
+        
+        if (direction.x < 0)
+        {
+            scale.x = -Mathf.Abs(scale.x);
+        }
+        else
+        {
+            scale.x = Mathf.Abs(scale.x);
+        }
+        transform.localScale = scale;
     }
 
     public override void OnHitWith(Character character)

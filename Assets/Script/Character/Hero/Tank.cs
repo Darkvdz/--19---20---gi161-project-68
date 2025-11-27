@@ -16,7 +16,7 @@ public class Tank : Hero, ISlashable
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    protected override void Awake()
     {
         base.InitializeHero(200, 10, 10, 0.6f, 10);
 
