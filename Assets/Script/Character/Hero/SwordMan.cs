@@ -20,8 +20,8 @@ public class SwordMan : Hero, ISlashable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        print("testhero");
-        base.InitializeHero(100, 15, 10, 0.5f, 10);
+        //100/15
+        base.InitializeHero(1000, 1000, 10, 0.5f, 10);
 
         currentAtk = Damage;
         skillATK = currentAtk + 10;

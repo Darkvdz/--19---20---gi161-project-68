@@ -6,17 +6,19 @@ public class HealPack : Item
     void Start()
     {
         base.InitializeItem(100);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        
+        GetComponent<Collider2D>().enabled = false;
+        Invoke("EnablePickup", 1.0f);
     }
 
     public override void AddjustPlayerStatus(Character hero)
     {
         hero.Hp += ItemStatus;
         Destroy(this.gameObject);
+    }
+    
+    void EnablePickup()
+    {
+        GetComponent<Collider2D>().enabled = true;
     }
 }

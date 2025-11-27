@@ -86,6 +86,7 @@ public abstract class Boss : Enemy
             Vector3 dropPos = transform.position + new Vector3(0, 0.05f, 0);
             Instantiate(ItemDrop, dropPos, Quaternion.identity);
         }
+
     }
 
     public abstract void AttackType(int currentPhase);

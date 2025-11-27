@@ -7,6 +7,12 @@ public abstract class Hero : Character
     public float SkillCD { get; set; }
 
     public float SkillWait;
+    
+    protected Animator anim; 
+    protected virtual void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     public void InitializeHero(int startHealth, int startDamage, int startMoveSpeed, float startAtkCD, int startAtkRange)
     {
@@ -47,6 +53,13 @@ public abstract class Hero : Character
         }
 
 
+    }
+    public void PlayAttackAnim()
+    {
+        if (anim != null)
+        {
+            anim.SetTrigger("Attack"); // ชื่อ "Attack" ต้องตรงกับใน Animator เป๊ะๆ
+        }
     }
 
 

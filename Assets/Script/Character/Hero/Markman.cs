@@ -13,6 +13,9 @@ public class Markman : Hero, IShootable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        
+        base.Awake();//for animation
+        
         //75/5
         base.InitializeHero(75, 5, 7, 0.5f, 10);
 
@@ -53,6 +56,7 @@ public class Markman : Hero, IShootable
     {
         if (WaitTime >= ReloadTime)
         {
+            PlayAttackAnim();
             Shoot();
         }
     }
