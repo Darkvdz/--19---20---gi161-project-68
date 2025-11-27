@@ -47,7 +47,18 @@ public class GameManager : MonoBehaviour
     private bool onLastLevel = false;
 
     private int currentLevel = 1;
+   
+    [Header("Camera Limits")] 
+    public float Lv1_MinX;
+    public float Lv1_MaxX;
+    
+    public float Lv2_MinX;
+    public float Lv2_MaxX;
+    
+    public float Lv3_MinX;
+    public float Lv3_MaxX;
 
+    
     private void Awake()
     {
         Instance = this;
@@ -113,6 +124,9 @@ public class GameManager : MonoBehaviour
         spawnedMonsters.Clear();
 
         monsterSpawn = monsterSpawnPointLv1;
+        
+        CameraFollow cam = FindAnyObjectByType<CameraFollow>();
+        if (cam != null) cam.SetCameraLimits(Lv1_MinX, Lv1_MaxX);
 
         StartCoroutine(SpawnMonstersCoroutine());
     }
@@ -127,6 +141,9 @@ public class GameManager : MonoBehaviour
         spawnedMonsters.Clear();
 
         monsterSpawn = monsterSpawnPointLv2;
+        
+        CameraFollow cam = FindAnyObjectByType<CameraFollow>();
+        if (cam != null) cam.SetCameraLimits(Lv2_MinX, Lv2_MaxX);
 
         StartCoroutine(SpawnMonstersCoroutine());
     }
@@ -141,6 +158,9 @@ public class GameManager : MonoBehaviour
         spawnedMonsters.Clear();
 
         monsterSpawn = monsterSpawnPointLv3;
+        
+        CameraFollow cam = FindAnyObjectByType<CameraFollow>();
+        if (cam != null) cam.SetCameraLimits(Lv3_MinX, Lv3_MaxX);
 
         StartCoroutine(SpawnMonstersCoroutine());
     }
