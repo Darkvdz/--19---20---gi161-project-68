@@ -33,6 +33,13 @@ public abstract class Monster : Enemy
         Vector3 scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * direction; 
         transform.localScale = scale;
+        
+        if(hpCanvas)
+        {
+            Vector3 hpScale = hpCanvas.localScale;
+            hpScale.x = Mathf.Abs(hpScale.x) * direction; 
+            hpCanvas.localScale = hpScale;
+        }
     }
 
     public override void CoinDrop()

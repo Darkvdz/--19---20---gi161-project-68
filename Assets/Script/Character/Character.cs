@@ -3,8 +3,9 @@ using UnityEngine.UI;
 
 public abstract class Character : MonoBehaviour
 {
+    [SerializeField] private Slider hpBar;
+    
     private int hp;
-
     public int Hp 
     { 
         get => hp;
@@ -12,6 +13,11 @@ public abstract class Character : MonoBehaviour
         { 
             hp = (value <= 0) ? 0 : (value >= MaxHp) ? MaxHp : value;
             //print(this.name + " hp is " + hp);
+            
+            if (hpBar != null)
+            {
+                hpBar.value = (float)hp / MaxHp; 
+            }
             
             if (IsDead()) 
             {
@@ -30,11 +36,8 @@ public abstract class Character : MonoBehaviour
 
 
     protected Rigidbody2D rb;
-
-    [SerializeField] private Slider hpBar;
-
-
-
+    
+    
     public void InitializeCharacter(int startHealth, int startDamage, int startMoveSpeed, float startAtkCD, int startAtkRange) 
     {
 

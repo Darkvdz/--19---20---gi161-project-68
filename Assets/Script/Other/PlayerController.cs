@@ -4,8 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour 
 {
 	public Character hero;
-
-
+	
     public float maxSpeed = 10f;
 	bool facingRight = true;
 
@@ -17,6 +16,8 @@ public class PlayerController : MonoBehaviour
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
 	public float jumpForce = 700.0f;
+	
+	public Transform hpCanvas;
 
 	// Use this for initialization
 	void Start () 
@@ -62,5 +63,13 @@ public class PlayerController : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+		
+		if(hpCanvas)
+		{
+			Vector3 hpScale = hpCanvas.localScale;
+			hpScale.x *= -1; 
+			hpCanvas.localScale = hpScale;
+		}
+		
 	}
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: db331049ac710cc44bba977754aefea7
+guid: 0aa52ae0f6f6fb14da7641f6932527d3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2784781455069787102
-    second: 42-425182_sword-slash-effect-png_0
+      213: -6594736500079269994
+    second: fighter_logo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 42-425182_sword-slash-effect-png_0
+      name: fighter_logo_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 820
-        height: 561
+        width: 571
+        height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed3b78e9af785a620800000000000000
-      internalID: 2784781455069787102
+      spriteID: 697e875f71aca74a0800000000000000
+      internalID: -6594736500079269994
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      42-425182_sword-slash-effect-png_0: 2784781455069787102
+      fighter_logo_0: -6594736500079269994
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
