@@ -2,8 +2,6 @@ using UnityEngine;
 
 public abstract class Hero : Character
 {
-    public Item[] ItemEquip { get; set; }
-
     public float SkillCD { get; set; }
 
     public float SkillWait;
