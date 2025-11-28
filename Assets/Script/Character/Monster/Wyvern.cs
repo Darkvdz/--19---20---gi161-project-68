@@ -16,7 +16,7 @@ public class Wyvern : Boss, IShootable, ISlashable
     {
         anim = GetComponentInChildren<Animator>();
         
-        base.InitializeBoss(100, 35, 5, 1.5f, 10, 50, 5, 3, 30);
+        base.InitializeBoss(120, 25, 5, 1.5f, 10, 50, 5, 3, 30);
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
 

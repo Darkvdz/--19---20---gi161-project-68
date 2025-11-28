@@ -16,7 +16,7 @@ public class Markman : Hero, IShootable
         base.Awake();//for animation
         
         //75/5
-        base.InitializeHero(75, 5, 7, 0.5f, 10);
+        base.InitializeHero(75, 10, 7, 0.5f, 10);
 
 
         SkillCD = 10;
