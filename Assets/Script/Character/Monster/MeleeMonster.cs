@@ -7,9 +7,13 @@ public class MeleeMonster : Monster, ISlashable
     public float SlashTime { get; set; }
     public float WaitTime { get; set; }
     
+    private Animator anim;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
+        
         base.InitializeEnemy(25, 5, 1, 1f, 2, 10, 7);
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
@@ -24,6 +28,13 @@ public class MeleeMonster : Monster, ISlashable
     {
         if (!target) return;
         Behavior();
+            
+        if (anim)
+        {
+            // ใช้ความเร็วแกน X (ค่าบวก) ส่งไปที่ตัวแปร Speed
+            // หมายเหตุ: Unity 6 ใช้ linearVelocity, เก่ากว่านั้นใช้ velocity
+            anim.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x)); 
+        }
     }
 
     private void FixedUpdate()
@@ -41,6 +52,11 @@ public class MeleeMonster : Monster, ISlashable
     {
         if (WaitTime >= SlashTime)
         {
+            if (anim)
+            {
+                anim.SetTrigger("Attack");
+            }
+            
             if (SlashEffect)
             {
                 GameObject slash = Instantiate(
@@ -56,8 +72,7 @@ public class MeleeMonster : Monster, ISlashable
                 {
                     float worldWidth = sr.sprite.bounds.size.x;
                     float worldHeight = sr.sprite.bounds.size.y;
-
-                    // ��Ѻ scale ��� match hitbox
+                    
                     float scaleX = hitbox.size.x / worldWidth;
                     float scaleY = hitbox.size.y / worldHeight;
 
