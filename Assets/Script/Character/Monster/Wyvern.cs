@@ -117,8 +117,6 @@ public class Wyvern : Boss, IShootable, ISlashable
                 Destroy(slash, 0.3f);
             }
 
-            //Vector2 boxSize = new Vector2(AtkRange, AtkRange * 0.6f); 
-
             Collider2D[] hits = Physics2D.OverlapBoxAll
             (
                 SlashPoint.position,

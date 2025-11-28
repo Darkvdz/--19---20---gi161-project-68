@@ -684,11 +684,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3339577102810059597, guid: af3b4891772375e4eba04a1b019f0e94, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4461483658213598166, guid: af3b4891772375e4eba04a1b019f0e94, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4592742474102168455, guid: af3b4891772375e4eba04a1b019f0e94, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.642
       objectReference: {fileID: 0}
     - target: {fileID: 4847051092407899695, guid: af3b4891772375e4eba04a1b019f0e94, type: 3}
       propertyPath: m_LocalScale.x
@@ -754,13 +758,21 @@ PrefabInstance:
       propertyPath: attackEffect
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6756603855434425230, guid: af3b4891772375e4eba04a1b019f0e94, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.64200014
+      objectReference: {fileID: 0}
     - target: {fileID: 8638232264317731823, guid: af3b4891772375e4eba04a1b019f0e94, type: 3}
       propertyPath: m_Name
       value: Yellow3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6530111611361594055, guid: af3b4891772375e4eba04a1b019f0e94, type: 3}
+    - {fileID: 6190210654947545058, guid: af3b4891772375e4eba04a1b019f0e94, type: 3}
     m_RemovedGameObjects:
     - {fileID: 231083463916557582, guid: af3b4891772375e4eba04a1b019f0e94, type: 3}
+    - {fileID: 2891864333023635154, guid: af3b4891772375e4eba04a1b019f0e94, type: 3}
+    - {fileID: 8584318032924486434, guid: af3b4891772375e4eba04a1b019f0e94, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af3b4891772375e4eba04a1b019f0e94, type: 3}

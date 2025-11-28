@@ -31,17 +31,7 @@ public abstract class Monster : Enemy
         float direction = Mathf.Sign(targetHero.transform.position.x - transform.position.x);
 
         rb.linearVelocity = new Vector2(direction * MoveSpeed, rb.linearVelocity.y);
-
-        /*Vector3 scale = transform.localScale;
-        scale.x = Mathf.Abs(scale.x) * direction; 
-        transform.localScale = scale;
         
-        if(hpCanvas)
-        {
-            Vector3 hpScale = hpCanvas.localScale;
-            hpScale.x = Mathf.Abs(hpScale.x) * direction; 
-            hpCanvas.localScale = hpScale;
-        }*/
     }
 
     public override void CoinDrop()
@@ -49,23 +39,6 @@ public abstract class Monster : Enemy
         GameManager.Instance.MonsterKilled(this.gameObject);
     }
     
-    public void FaceTarget()
-    {
-        
-        float direction = Mathf.Sign(target.transform.position.x - transform.position.x);
-        
-        Vector3 scale = transform.localScale;
-        
-        scale.x = Mathf.Abs(scale.x) * direction; 
-        transform.localScale = scale;
-        
-        if(hpCanvas)
-        {
-            Vector3 hpScale = hpCanvas.localScale;
-            hpScale.x = Mathf.Abs(hpScale.x) * direction; 
-            hpCanvas.localScale = hpScale;
-        }
-    }
 
     public abstract void AttackType();
 

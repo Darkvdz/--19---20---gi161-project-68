@@ -10,10 +10,8 @@ public abstract class Hero : Character
     
     protected virtual void Awake()
     {
-        // ค้นหาคนที่มีอาชีพ SkillUI ในฉาก
         skillUI = FindAnyObjectByType<SkillUI>();
         
-        // (เช็คหน่อยว่าเจอไหม)
         if (skillUI == null) 
             Debug.LogWarning("ไม่เจอ SkillUI ในฉากนะ! ลืมแปะ Script หรือเปล่า?");
         

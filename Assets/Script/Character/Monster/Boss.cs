@@ -27,6 +27,8 @@ public abstract class Boss : Enemy
 
     public override void Behavior()
     {
+        FaceTarget();
+        
         if ((!changedStage) && (Hp <= ChangePhaseAt))
         {
             changedStage = true;

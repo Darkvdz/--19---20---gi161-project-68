@@ -59,14 +59,6 @@ namespace Ex
             animator.SetTrigger("isDie");
 
         }
-        public void ActivateAttackEffect1()
-        {
-            attackEffect.SetActive(true);
-        }
-        public void ActivateAttackEffect2()
-        {
-            attackEffect.SetActive(true);
-        }
         public void DieFinish()
         {
             Destroy(gameObject);
