@@ -68,7 +68,8 @@ public class Wyvern : Boss, IShootable, ISlashable
         {
             if (anim) anim.SetTrigger("Attack");
             
-            Vector2 dir = (target.transform.position - transform.position).normalized;
+            Vector3 targetCenter = target.transform.position + new Vector3(0, 0.5f, 0);
+            Vector2 dir = (targetCenter - ShootPoint.position).normalized;
 
             var bullet = Instantiate(Bullet, ShootPoint.position, Quaternion.identity);
             Fireballs fireballs = bullet.GetComponent<Fireballs>();

@@ -24,7 +24,7 @@ public class SwordMan : Hero, ISlashable
         
         anim = GetComponentInChildren<Animator>();
         //100/15
-        base.InitializeHero(1000, 1000, 10, 0.5f, 10);
+        base.InitializeHero(1000, 30, 10, 0.5f, 10);
 
         currentAtk = Damage;
         skillATK = currentAtk + 10;

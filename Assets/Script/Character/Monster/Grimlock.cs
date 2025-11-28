@@ -15,6 +15,8 @@ public class Grimlock : Boss, IShootable, ISlashable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
+        
         base.InitializeBoss(150, 25, 3, 0.8f, 3, 50, 3, 8, 60);
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
@@ -31,6 +33,11 @@ public class Grimlock : Boss, IShootable, ISlashable
     {
         if (!target) return;
         Behavior();
+        
+        if (anim)
+        {
+            anim.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+        }
     }
 
     private void FixedUpdate()
@@ -62,7 +69,10 @@ public class Grimlock : Boss, IShootable, ISlashable
     {
         if (WaitTime >= ReloadTime)
         {
-            Vector2 dir = (target.transform.position - transform.position).normalized;
+            if (anim != null) anim.SetTrigger("Attack");
+            
+            Vector3 targetCenter = target.transform.position + new Vector3(0, 0.5f, 0);
+            Vector2 dir = (targetCenter - ShootPoint.position).normalized;
 
             var bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
             Fireballs fireballs = bullet.GetComponent<Fireballs>();
@@ -83,6 +93,8 @@ public class Grimlock : Boss, IShootable, ISlashable
         {
             if (SlashEffect)
             {
+                if (anim != null) anim.SetTrigger("Attack");
+                
                 GameObject slash = Instantiate(
                     SlashEffect,
                     SlashPoint.position,
