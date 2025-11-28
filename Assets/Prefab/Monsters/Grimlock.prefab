@@ -103,7 +103,7 @@ Transform:
   m_GameObject: {fileID: 715250687293619961}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.214, y: 0.633, z: -0.00852338}
+  m_LocalPosition: {x: 0.214, y: 0.643, z: -0.00852338}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -353,7 +353,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.03463477, y: 0.7462739}
+  m_Offset: {x: 0.03463477, y: 0.7846813}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -363,7 +363,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0131956, y: 1.6994069}
+  m_Size: {x: 1.0131956, y: 1.622592}
   m_EdgeRadius: 0.01
 --- !u!114 &2794427625686486108
 MonoBehaviour:
@@ -382,9 +382,9 @@ MonoBehaviour:
   target: {fileID: 0}
   hpCanvas: {fileID: 8629398815013891398}
   ItemDrop: {fileID: 8844742344051060368, guid: e7d64f0527da42348ab7fc456462a2c6, type: 3}
-  <Bullet>k__BackingField: {fileID: 182108, guid: a5638a192258f4059b0e074542d33fbc, type: 3}
+  <Bullet>k__BackingField: {fileID: 182108, guid: b29c72b6bcdc8bd4ab3848fcf10cfdc9, type: 3}
   <ShootPoint>k__BackingField: {fileID: 7250023111157792234}
-  <SlashEffect>k__BackingField: {fileID: 8103651512560070264, guid: 3e2236fd11d7bbb4b815903d87aac3d7, type: 3}
+  <SlashEffect>k__BackingField: {fileID: 6803159066198607054, guid: 25ad2e6dbc0d4f146bf74355d6831ff9, type: 3}
   <SlashPoint>k__BackingField: {fileID: 633465567667953549}
 --- !u!1 &5707894354321642140
 GameObject:

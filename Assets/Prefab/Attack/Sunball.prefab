@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6122222}
   - component: {fileID: 1037251247664691191}
   m_Layer: 0
-  m_Name: FireBall
+  m_Name: Sunball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.41, y: -1.14, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 6211768296689596970, guid: 107102072d2ac8e4791fcd5a5980d6e4, type: 3}
+  m_Sprite: {fileID: 1583224262360450449, guid: 5b14fd394e55594489dc10afdb0fc235, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,7 +127,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.104, y: 0.408}
+    oldSize: {x: 2.6, y: 2.34}
     newSize: {x: 2.76, y: 1.02}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

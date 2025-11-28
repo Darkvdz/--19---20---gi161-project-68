@@ -74,7 +74,7 @@ public class Grimlock : Boss, IShootable, ISlashable
             Vector3 targetCenter = target.transform.position + new Vector3(0, 0.5f, 0);
             Vector2 dir = (targetCenter - ShootPoint.position).normalized;
 
-            var bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
+            var bullet = Instantiate(Bullet, ShootPoint.position, Quaternion.identity);
             Fireballs fireballs = bullet.GetComponent<Fireballs>();
             if (fireballs)
             {

@@ -568,9 +568,9 @@ MonoBehaviour:
   target: {fileID: 0}
   hpCanvas: {fileID: 5631443330343417529}
   ItemDrop: {fileID: 3369375821244237367, guid: fb236b4413317a14c87e905d17719b45, type: 3}
-  <Bullet>k__BackingField: {fileID: 182108, guid: a5638a192258f4059b0e074542d33fbc, type: 3}
+  <Bullet>k__BackingField: {fileID: 182108, guid: 64bee146e6b1d1347824b8b360ef1318, type: 3}
   <ShootPoint>k__BackingField: {fileID: 1610525184865637448}
-  <SlashEffect>k__BackingField: {fileID: 6803159066198607054, guid: 49783bbd3b1a9d445b62cb41c6d48bec, type: 3}
+  <SlashEffect>k__BackingField: {fileID: 6803159066198607054, guid: d361a469f9cc03a4e83d7848a379ee76, type: 3}
   <SlashPoint>k__BackingField: {fileID: 3006671365895260132}
 --- !u!1 &8749369630541141135
 GameObject:
