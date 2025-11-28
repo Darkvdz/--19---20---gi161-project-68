@@ -182,7 +182,7 @@ MonoBehaviour:
   <AtkRange>k__BackingField: 0
   target: {fileID: 0}
   hpCanvas: {fileID: 7346801320748672499}
-  <SlashEffect>k__BackingField: {fileID: 6803159066198607054, guid: 49783bbd3b1a9d445b62cb41c6d48bec, type: 3}
+  <SlashEffect>k__BackingField: {fileID: 6803159066198607054, guid: 4f02af2f246582444945e8409ba23cbc, type: 3}
   <SlashPoint>k__BackingField: {fileID: 7322643944017883474}
 --- !u!1 &766969813480127733
 GameObject:
