@@ -18,6 +18,10 @@ public class Tank : Hero, ISlashable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Awake()
     {
+        base.Awake();
+        
+        anim = GetComponentInChildren<Animator>();
+            
         base.InitializeHero(200, 10, 10, 0.6f, 10);
 
         SkillCD = 10;
@@ -30,8 +34,10 @@ public class Tank : Hero, ISlashable
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+        
         if (Input.GetButtonDown("Attack"))
         {
             AttackType();
@@ -50,6 +56,7 @@ public class Tank : Hero, ISlashable
         SkillWait += Time.fixedDeltaTime;
         SkillWait = Mathf.Clamp(SkillWait, 0.0f, 10.0f);
 
+        SkillWait = Mathf.Clamp(SkillWait, 0.0f, 10.0f);
         buffDuration += Time.fixedDeltaTime;
         buffDuration = Mathf.Clamp(buffDuration, 0.0f, 10.0f);
 
@@ -65,7 +72,8 @@ public class Tank : Hero, ISlashable
             {
                 onBuff = false;
 
-                SkillWait = 0.0f;
+                //SkillWait = 0.0f;
+                
                 buffDuration = 10;
                 print("buff end");
             }
@@ -75,7 +83,11 @@ public class Tank : Hero, ISlashable
 
     public override void AttackType()
     {
-        Slash();
+        if (WaitTime >= SlashTime)
+        {
+            PlayAttackAnim(); 
+            Slash();         
+        }
     }
 
     public override void Skill()
@@ -84,6 +96,7 @@ public class Tank : Hero, ISlashable
         {
             buffDuration = 0;
             onBuff = true;
+            SkillWait = 0.0f;
 
             print("buff start");
         }

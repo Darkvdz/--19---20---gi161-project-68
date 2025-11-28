@@ -8,7 +8,7 @@ public class HealPack : Item
         base.InitializeItem(100);
         
         GetComponent<Collider2D>().enabled = false;
-        Invoke("EnablePickup", 1.0f);
+        Invoke("EnablePickup", 0.8f);
     }
 
     public override void AddjustPlayerStatus(Character hero)

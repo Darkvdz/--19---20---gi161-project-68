@@ -9,9 +9,29 @@ public abstract class Hero : Character
     public float SkillWait;
     
     protected Animator anim; 
+    
+    protected SkillUI skillUI;
+    
     protected virtual void Awake()
     {
-        anim = GetComponent<Animator>();
+        // ค้นหาคนที่มีอาชีพ SkillUI ในฉาก
+        skillUI = FindAnyObjectByType<SkillUI>();
+        
+        // (เช็คหน่อยว่าเจอไหม)
+        if (skillUI == null) 
+            Debug.LogWarning("ไม่เจอ SkillUI ในฉากนะ! ลืมแปะ Script หรือเปล่า?");
+        
+        anim = GetComponentInChildren<Animator>();
+    }
+    
+    protected virtual void Update()
+    {
+        // ถ้าเจอ UI ให้ส่งข้อมูลไปบอกมัน
+        if (skillUI)
+        {
+            // ส่ง "เวลาที่รอไปแล้ว" และ "เวลาเต็ม" ไปให้ UI คำนวณ %
+            skillUI.UpdateCooldown(SkillWait, SkillCD);
+        }
     }
 
     public void InitializeHero(int startHealth, int startDamage, int startMoveSpeed, float startAtkCD, int startAtkRange)

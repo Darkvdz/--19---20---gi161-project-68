@@ -41,8 +41,10 @@ public class SwordMan : Hero, ISlashable
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+        
         if (Input.GetButtonDown("Attack"))
         {
             AttackType();
@@ -77,7 +79,8 @@ public class SwordMan : Hero, ISlashable
                 Damage = currentAtk;
                 onBuff = false;
 
-                SkillWait = 0.0f;
+                //SkillWait = 0.0f;
+                
                 buffDuration = 3;
                 print("buff end" + Damage);
             }
@@ -98,6 +101,8 @@ public class SwordMan : Hero, ISlashable
             Damage = skillATK;
             buffDuration = 0;
             onBuff = true;
+            
+            SkillWait = 0.0f;
 
             print("buff start" + Damage);
         }

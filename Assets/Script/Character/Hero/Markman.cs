@@ -28,8 +28,10 @@ public class Markman : Hero, IShootable
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+        
         if (Input.GetButtonDown("Attack"))
         {
             AttackType();
