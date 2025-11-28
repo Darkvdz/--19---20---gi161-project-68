@@ -14,6 +14,8 @@ public class Wyvern : Boss, IShootable, ISlashable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
+        
         base.InitializeBoss(100, 35, 5, 1.5f, 10, 50, 5, 3, 30);
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
@@ -30,6 +32,11 @@ public class Wyvern : Boss, IShootable, ISlashable
     {
         if (!target) return;
         Behavior();
+        
+        if (anim)
+        {
+            anim.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+        }
     }
 
     private void FixedUpdate()
@@ -59,9 +66,11 @@ public class Wyvern : Boss, IShootable, ISlashable
     {
         if (WaitTime >= ReloadTime)
         {
+            if (anim) anim.SetTrigger("Attack");
+            
             Vector2 dir = (target.transform.position - transform.position).normalized;
 
-            var bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
+            var bullet = Instantiate(Bullet, ShootPoint.position, Quaternion.identity);
             Fireballs fireballs = bullet.GetComponent<Fireballs>();
             if (fireballs)
             {
@@ -78,6 +87,8 @@ public class Wyvern : Boss, IShootable, ISlashable
     {
         if (WaitTime >= SlashTime)
         {
+            if (anim) anim.SetTrigger("Attack");
+            
             if (SlashEffect)
             {
                 GameObject slash = Instantiate(

@@ -7,8 +7,6 @@ public class MeleeMonster : Monster, ISlashable
     public float SlashTime { get; set; }
     public float WaitTime { get; set; }
     
-    private Animator anim;
-    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

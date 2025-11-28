@@ -5,6 +5,8 @@ public abstract class Character : MonoBehaviour
 {
     [SerializeField] private Slider hpBar;
     
+    protected Animator anim;
+    
     private int hp;
     public int Hp 
     { 
@@ -14,7 +16,7 @@ public abstract class Character : MonoBehaviour
             hp = (value <= 0) ? 0 : (value >= MaxHp) ? MaxHp : value;
             //print(this.name + " hp is " + hp);
             
-            if (hpBar != null)
+            if (hpBar)
             {
                 hpBar.value = (float)hp / MaxHp; 
             }

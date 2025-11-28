@@ -10,8 +10,6 @@ public abstract class Enemy : Character
     
     protected float lastAttackTime;
     
-    
-
     public void InitializeEnemy(int startHealth, int startDamage, int startMoveSpeed, float startAtkSpeed, int startAtkRange, int startCoin, int startChasingSpeed)
     {
         base.InitializeCharacter(startHealth, startDamage, startMoveSpeed, startAtkSpeed, startAtkRange);
@@ -19,8 +17,7 @@ public abstract class Enemy : Character
         Coin = startCoin;
         ChasingSpeed = startChasingSpeed;
     }
-
-
+    
     public override void OnDeath()
     {
         CoinDrop();

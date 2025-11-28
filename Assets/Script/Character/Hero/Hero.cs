@@ -8,8 +8,6 @@ public abstract class Hero : Character
 
     public float SkillWait;
     
-    protected Animator anim; 
-    
     protected SkillUI skillUI;
     
     protected virtual void Awake()

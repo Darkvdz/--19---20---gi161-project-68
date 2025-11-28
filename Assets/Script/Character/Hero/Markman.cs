@@ -8,8 +8,7 @@ public class Markman : Hero, IShootable
     [field: SerializeField] public Transform ShootPoint { get; set; }
     public float ReloadTime { get; set; }
     public float WaitTime { get; set; }
-
-
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Awake()
     {
