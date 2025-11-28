@@ -7,15 +7,18 @@ public class MageMonster : Monster, IShootable
     public float ReloadTime { get; set; }
     public float WaitTime { get; set; }
 
+    private Animator anim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        anim=GetComponentInChildren<Animator>();
         base.InitializeEnemy(15, 7, 1, 1.5f, 8, 10, 5);
         rb = GetComponent<Rigidbody2D>();
         target = FindAnyObjectByType<Hero>();
         
         ReloadTime = AtkCD;
-        WaitTime = 100;
+        WaitTime = 1;
     }
 
     // Update is called once per frame
@@ -23,6 +26,11 @@ public class MageMonster : Monster, IShootable
     {
         if (!target) return;
         Behavior();
+        
+        if (anim)
+        {
+            anim.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+        }
     }
     
     private void FixedUpdate()
@@ -40,9 +48,14 @@ public class MageMonster : Monster, IShootable
     {
         if (WaitTime >= ReloadTime) 
         {
+            if (anim)
+            {
+                anim.SetTrigger("Attack");
+            }
+            
             Vector2 dir = (target.transform.position - transform.position).normalized;
             
-            var bullet = Instantiate(Bullet, transform.position, Quaternion.identity);
+            var bullet = Instantiate(Bullet, ShootPoint.position, Quaternion.identity);
             Fireballs fireballs = bullet.GetComponent<Fireballs>();
             if (fireballs) 
             {

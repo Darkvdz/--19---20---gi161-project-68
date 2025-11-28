@@ -8,6 +8,8 @@ public abstract class Monster : Enemy
         //float distance = Vector2.Distance(transform.position, target.transform.position);
         Vector2 distance = transform.position - target.transform.position;
 
+        FaceTarget();
+        
         if (distance.magnitude > AtkRange)
         {
             Chasing(target);
@@ -30,7 +32,30 @@ public abstract class Monster : Enemy
 
         rb.linearVelocity = new Vector2(direction * MoveSpeed, rb.linearVelocity.y);
 
+        /*Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * direction; 
+        transform.localScale = scale;
+        
+        if(hpCanvas)
+        {
+            Vector3 hpScale = hpCanvas.localScale;
+            hpScale.x = Mathf.Abs(hpScale.x) * direction; 
+            hpCanvas.localScale = hpScale;
+        }*/
+    }
+
+    public override void CoinDrop()
+    {
+        GameManager.Instance.MonsterKilled(this.gameObject);
+    }
+    
+    public void FaceTarget()
+    {
+        
+        float direction = Mathf.Sign(target.transform.position.x - transform.position.x);
+        
         Vector3 scale = transform.localScale;
+        
         scale.x = Mathf.Abs(scale.x) * direction; 
         transform.localScale = scale;
         
@@ -40,11 +65,6 @@ public abstract class Monster : Enemy
             hpScale.x = Mathf.Abs(hpScale.x) * direction; 
             hpCanvas.localScale = hpScale;
         }
-    }
-
-    public override void CoinDrop()
-    {
-        GameManager.Instance.MonsterKilled(this.gameObject);
     }
 
     public abstract void AttackType();
